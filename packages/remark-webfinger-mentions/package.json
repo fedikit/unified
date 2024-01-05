@@ -1,0 +1,20 @@
+{
+  "name": "@fedikit/remark-webfinger-mentions",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@types/mdast": "^4.0.3",
+    "mdast-util-find-and-replace": "^3.0.1",
+    "sync-fetch": "^0.5.2",
+    "unified": "^11.0.4",
+    "unist-builder": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/sync-fetch": "^0.4.3",
+    "remark": "^15.0.1"
+  }
+}

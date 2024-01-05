@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json.schemastore.org/tsconfig",
+  "extends": "@importantimport/tsconfig",
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "include": [
+    "packages/**/src",
+    "packages/**/test"
+  ]
+}
