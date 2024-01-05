@@ -4,10 +4,10 @@ import * as exports from '../src'
 
 describe('exports', () => {
   it('default', () => {
-    expect(exports.default).not.toBeUndefined()
+    expect(exports.default).toBe(exports.rehypeCustomEmoji)
   })
   it('remarkCustomEmoji', () => {
-    expect(exports.rehypeCustomEmoji).not.toBeUndefined()
+    expect(exports.rehypeCustomEmoji).toBe(exports.default)
   })
   it('fetcher', () => {
     expect(exports.all).not.toBeUndefined()

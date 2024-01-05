@@ -4,10 +4,10 @@ import * as exports from '../src'
 
 describe('exports', () => {
   it('default', () => {
-    expect(exports.default).not.toBeUndefined()
+    expect(exports.default).toBe(exports.remarkWebfingerMentions)
   })
   it('remarkWebfingerMentions', () => {
-    expect(exports.remarkWebfingerMentions).not.toBeUndefined()
+    expect(exports.remarkWebfingerMentions).toBe(exports.default)
   })
   it('getAcct', () => {
     expect(exports.getAcct).not.toBeUndefined()
