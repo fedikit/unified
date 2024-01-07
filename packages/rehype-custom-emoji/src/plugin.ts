@@ -1,4 +1,4 @@
-import type { Element, Nodes } from 'hast'
+import type { Element, Root } from 'hast'
 import type { Plugin, Transformer } from 'unified'
 
 import { findAndReplace } from 'hast-util-find-and-replace'
@@ -12,7 +12,7 @@ export type RehypeCustomEmojiOptions = {
   match?: RegExp
 }
 
-export const rehypeCustomEmoji: Plugin<[RehypeCustomEmojiOptions]> = (options): Transformer => {
+export const rehypeCustomEmoji: Plugin<[RehypeCustomEmojiOptions], Root, Root> = (options): Transformer<Root, Root> => {
   const emojis = new Map<string, CustomEmoji>()
   const format = options.format ?? ((emoji) => h('picture', [
     h('source', {
@@ -35,7 +35,7 @@ export const rehypeCustomEmoji: Plugin<[RehypeCustomEmojiOptions]> = (options): 
   for (const emoji of options.emojis.filter(v => v !== undefined) as CustomEmoji[])
     emojis.set(emoji.shortcode, emoji)
 
-  return (tree) => findAndReplace(tree as unknown as Nodes, [
+  return (tree) => findAndReplace(tree, [
     match,
     (str: string) => {
       const shortcode = str.slice(1, -1)

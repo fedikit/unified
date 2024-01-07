@@ -1,4 +1,4 @@
-import type { Nodes } from 'mdast'
+import type { Root } from 'mdast'
 import type { Plugin, Transformer } from 'unified'
 
 import { findAndReplace } from 'mdast-util-find-and-replace'
@@ -10,11 +10,11 @@ export type RemarkWebfingerMentionsOptions = {
   match?: RegExp
 }
 
-export const remarkWebfingerMentions: Plugin<[RemarkWebfingerMentionsOptions]> = (options): Transformer => {
+export const remarkWebfingerMentions: Plugin<[RemarkWebfingerMentionsOptions], Root, Root> = (options): Transformer<Root, Root> => {
   const resources = new Map<string, string | undefined>()
   const match = options.match ?? /@([\w%+.-]+)@([\w.-]+\.[\da-z-]{2,})/g
 
-  return (tree) => findAndReplace(tree as unknown as Nodes, [
+  return (tree) => findAndReplace(tree, [
     match,
     (str: string) => {
       const acct = str.slice(1)
