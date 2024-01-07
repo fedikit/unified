@@ -10,6 +10,7 @@ export type RehypeCustomEmojiOptions = {
   emojis: (CustomEmoji | undefined)[]
   format?: (emoji: CustomEmoji) => Element
   match?: RegExp
+  trim?: (str: string) => string
 }
 
 export const rehypeCustomEmoji: Plugin<[RehypeCustomEmojiOptions], Root, Root> = (options): Transformer<Root, Root> => {
@@ -31,6 +32,7 @@ export const rehypeCustomEmoji: Plugin<[RehypeCustomEmojiOptions], Root, Root> =
     }),
   ]))
   const match = options.match ?? /:([\w-]+):/g
+  const trim = options.trim ?? ((str) => str.slice(1, -1)) // :shortcode: => shortcode
 
   for (const emoji of options.emojis.filter(v => v !== undefined) as CustomEmoji[])
     emojis.set(emoji.shortcode, emoji)
@@ -38,7 +40,7 @@ export const rehypeCustomEmoji: Plugin<[RehypeCustomEmojiOptions], Root, Root> =
   return (tree) => findAndReplace(tree, [
     match,
     (str: string) => {
-      const shortcode = str.slice(1, -1)
+      const shortcode = trim(str)
       const emoji = emojis.get(shortcode)
 
       return emoji
