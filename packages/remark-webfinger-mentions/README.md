@@ -6,7 +6,7 @@ Remark plugin to replace acct mentions with links
 
 ```ts
 import { remark } from 'remark'
-import { remarkWebfingerMentions } from '@fedikit/rehype-custom-emoji'
+import { remarkWebfingerMentions } from '@fedikit/remark-webfinger-mentions'
 
 const file = await remark()
   .use(remarkWebfingerMentions)
