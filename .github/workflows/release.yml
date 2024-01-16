@@ -23,10 +23,14 @@ jobs:
       - name: setup node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: latest
+          registry-url: https://registry.npmjs.org
 
       - name: install pnpm
         run: npm i pnpm@latest -g
+        with:
+          version: latest
+          run-install: false
 
       - name: setup npmrc
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
