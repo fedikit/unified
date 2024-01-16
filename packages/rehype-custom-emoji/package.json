@@ -2,6 +2,28 @@
   "name": "@fedikit/rehype-custom-emoji",
   "type": "module",
   "version": "0.0.1",
+  "description": "Rehype plugin to support custom emoji (emojo)",
+  "author": "藍+85CD",
+  "license": "MIT",
+  "homepage": "https://github.com/fedikit/unified",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fedikit/unified.git",
+    "directory": "packages/rehype-custom-emoji"
+  },
+  "bugs": "https://github.com/fedikit/unified/issues",
+  "keywords": [
+    "custom emoji",
+    "emoji",
+    "unified",
+    "rehype-plugin"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
   "scripts": {
     "build": "vite build",
     "test": "vitest"

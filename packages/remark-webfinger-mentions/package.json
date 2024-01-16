@@ -2,6 +2,28 @@
   "name": "@fedikit/remark-webfinger-mentions",
   "type": "module",
   "version": "0.0.1",
+  "description": "Remark plugin to replace acct mentions with links",
+  "author": "藍+85CD",
+  "license": "MIT",
+  "homepage": "https://github.com/fedikit/unified",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fedikit/unified.git",
+    "directory": "packages/remark-webfinger-mentions"
+  },
+  "bugs": "https://github.com/fedikit/unified/issues",
+  "keywords": [
+    "webfinger",
+    "mentions",
+    "unified",
+    "remark-plugin"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
   "scripts": {
     "build": "vite build",
     "test": "vitest"
