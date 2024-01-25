@@ -34,3 +34,13 @@ const file = await rehype()
 // </picture>
 console.log(String(file))
 ```
+
+## Compatibility
+
+This plugin accept arrays, so you can get [CustomEmoji](https://docs.joinmastodon.org/entities/CustomEmoji/) entity from any source.
+
+The main compatibility of fetcher is described here, it is compatible with Mastodon, Pleroma and their forks.
+
+Misskey: since it doesn't implement `/api/v1/custom_emojis`, it can only get single emojis.
+
+GoToSocial: not currently supported, depending on [#2340](https://github.com/superseriousbusiness/gotosocial/issues/2430)
